@@ -11,8 +11,18 @@ import Business from '../pages/Business';
 import Task from '../pages/Task';
 import Finance from '../pages/Finance';
 import Data from '../pages/Data';
+// import index from '../pages/System';
 
 const { Header, Content, Footer } = Layout;
+
+let configRouter = [
+    {path:'/', title:'系统', exact: true, component: Home},
+    {path:'/workplace/', title:'工作台', exact: false, component: WorkPlace},
+    {path:'/business/', title:'商机', exact: false, component: Business},
+    {path:'/task/', title:'任务单', exact: false, component: Task},
+    {path:'/finance/', title:'财务', exact: false, component: Finance},
+    {path:'/data/', title:'数据', exact: false, component: Data},
+];
 
 class BasicLayout extends React.Component {
     // state = {
@@ -38,16 +48,17 @@ class BasicLayout extends React.Component {
                             theme="dark"
                             mode="horizontal"
                             // defaultSelectedKeys={this.state.selectedKey}
-                            defaultSelectedKeys={['1']}
+                            defaultSelectedKeys={['0']}
                             style={{ lineHeight: '64px', marginLeft:'4%'}}
                             // onSelect={this.handleSelect}
                         >
-                            <Menu.Item key="1"><Link to='/'>系统</Link></Menu.Item>
-                            <Menu.Item key="2"><Link to='/workplace/'>工作台</Link></Menu.Item>
-                            <Menu.Item key="3"><Link to='/business/'>商机</Link></Menu.Item>
-                            <Menu.Item key="4"><Link to='/task/'>任务单</Link></Menu.Item>
-                            <Menu.Item key="5"><Link to='/finance/'>财务</Link></Menu.Item>
-                            <Menu.Item key="6"><Link to='/data/'>数据</Link></Menu.Item>
+                            {
+                                configRouter && configRouter.map((item, index) => {
+                                    return(
+                                        <Menu.Item key={index}><Link to={item.path}>{item.title}</Link></Menu.Item>
+                                    )
+                                })
+                            }
                         </Menu>
                     </Header>
                     <Content style={{ padding: '0 50px' }}>
@@ -57,17 +68,18 @@ class BasicLayout extends React.Component {
                             <Breadcrumb.Item>角色管理</Breadcrumb.Item>
                         </Breadcrumb>
                         <div>
-                            <Route path='/' exact component={Home}/>
-                            <Route path='/workplace/'  component={WorkPlace}/>
-                            <Route path='/business/'  component={Business}/>
-                            <Route path='/task/'  component={Task}/>
-                            <Route path='/finance/'  component={Finance}/>
-                            <Route path='/data/'  component={Data}/>
+                            {
+                                configRouter && configRouter.map((val, indexRouter) => {
+                                    return (
+                                        <Route key={indexRouter} path={val.path} exact={val.exact} component={val.component}/>
+                                    )
+                                })
+                            }
                         </div>
                     </Content>
                     <Footer style={{ textAlign: 'center' }}>优麦后台 ©2019 Created by Mr.z</Footer>
                 </Layout>
-        </div>
+            </div>
         )
     }
 }
