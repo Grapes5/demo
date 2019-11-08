@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router,Route, Switch } from "react-router-dom";
 import LoadableComponent from './hocs/LoadableComponent';
 
 
@@ -12,8 +12,8 @@ function App() {
     return (
         <Router>
             <Switch>
-                {/* <Route exact path='/' component={NotFound}/> */}
                 <Layout />
+                <Route component={NotFound}/>
             </Switch>
         </Router>
     )

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import 'antd/dist/antd.css'; 
 import '../index.scss';
 import { Layout, Menu, Breadcrumb } from 'antd';
@@ -15,18 +15,18 @@ import Data from '../pages/Data';
 const { Header, Content, Footer } = Layout;
 
 class BasicLayout extends React.Component {
-    state = {
-        selectedKey: '1'
-    }
+    // state = {
+    //     selectedKey: '1'
+    // }
 
-    handleSelect = ({ key }) => {
-        this.setState({
-            selectedKey: key
-        })
-    }
+    // handleSelect = ({ key }) => {
+    //     this.setState({
+    //         selectedKey: key
+    //     })
+    // }
 
     render() {
-        const { selectedKey } = this.state;
+        // const { selectedKey } = this.state;
         return (
             <div>
                 <Layout>
@@ -37,9 +37,10 @@ class BasicLayout extends React.Component {
                         <Menu
                             theme="dark"
                             mode="horizontal"
-                            defaultSelectedKeys={this.state.selectedKey}
+                            // defaultSelectedKeys={this.state.selectedKey}
+                            defaultSelectedKeys={['1']}
                             style={{ lineHeight: '64px', marginLeft:'4%'}}
-                            onSelect={this.handleSelect}
+                            // onSelect={this.handleSelect}
                         >
                             <Menu.Item key="1"><Link to='/'>系统</Link></Menu.Item>
                             <Menu.Item key="2"><Link to='/workplace/'>工作台</Link></Menu.Item>

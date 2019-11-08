@@ -1,10 +1,10 @@
 import React from "react";
 import {  Route, Link  } from "react-router-dom";
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu } from 'antd';
 import Java from './Data/java';
 import JavaScript from './Data/javascript';
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Content, Sider } = Layout;
 
 function Worker() {
     return (

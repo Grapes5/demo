@@ -5,9 +5,9 @@
  import React from 'react';
  import { Route, Link  } from "react-router-dom";
  import FirstPage from './System';
- import { Layout, Menu, Breadcrumb } from 'antd';
+ import { Layout, Menu } from 'antd';
 
- const { Header, Content, Footer, Sider } = Layout;
+ const { Content, Sider } = Layout;
 
     function Home() {
         return(

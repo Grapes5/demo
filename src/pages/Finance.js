@@ -4,7 +4,7 @@ import { Layout, Menu } from 'antd';
 import Finance1 from './Finance/finance1';
 import Finance2 from './Finance/finance2';
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Content, Sider } = Layout;
 
 function Worker() {
     return (
